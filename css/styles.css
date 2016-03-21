@@ -1,0 +1,56 @@
+@font-face { font-family: Ringbearer; font-weight: bold; src: url("../fonts/ringbearer.medium.ttf");}
+body {
+	background-color: #000;
+	background-image: url("../img/dragon-big.jpg");
+	background-size: cover;
+}
+button {
+	font-family: Ringbearer;
+	width: 64px;
+	height: 64px;
+	font-size: 44px;
+	border-radius: 5px;
+	background-color: #000;
+	border-style: none;
+	background-image: url("../img/celtpat.png");
+	background-size: 64px 64px;
+	color: #eee;
+	margin: 10px;
+	box-shadow: 0px 0px 5px #111;
+}
+button:active {
+	box-shadow: 0px 0px 5px #ccc;
+}
+#input {
+	font-family: Ringbearer;
+	height: 200px;
+	width: 200px;
+	float: none;
+	font-size: 130px;
+	margin: 60px;
+	text-align: center;
+	background-color: rgba(0,0,0,0.5);
+	border-style: none;
+	border-radius: 5px;
+	text-shadow: 0px 0px #111;
+	margin: -50px auto;
+	line-height: 190px;
+}
+p {
+	color: #ffffff;
+}
+.holder {
+	text-align: center;
+	padding: 20px;
+	width: 600px;
+	margin: 20px auto;
+}
+.holdolder {
+	text-align: center;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
