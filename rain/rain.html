@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Purple Rain</title>
+    <link rel="stylesheet" type="text/css" href="/rain/css/rainstyles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/rain/js/rainscripts.js"></script>
+  </head>
+  <body>
+    <div id='container'>
+      <canvas id="myCanvas" width="1000px" height="1000px"></canvas>
+      <div id='show'>
+        <button id='reset' onclick="reset()">Reset</button>
+        <button id='showbutton'>Show</button>
+      </div>
+      <div id='controls'>
+        <form method="post">
+          <label for="speed">Speed:</label>
+          <input type="range" name="speed" id="speed" value="6" min="0" max="20">
+          <label for="density">Density:</label>
+          <input type="range" name="density" id="density" value="8" min="1" max="30">
+          <label for="width">Width:</label>
+          <input type="range" name="width" id="width" value="4" min="0" max="10">
+          <label for="length">Length:</label>
+          <input type="range" name="length" id="length" value="40" min="0" max="100">
+        </form>
+      </div>
+    </div>
+    <!-- <iframe style="display: none" src="https://rainymood.com/"></iframe> -->
+  </body>
+</html>      

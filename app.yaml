@@ -9,15 +9,42 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /img
-  static_dir: img
+- url: /dnd/js
+  static_dir: dnd/js
 
-- url: /fonts
-  static_dir: fonts
+- url: /dnd/libs
+  static_dir: dnd/libs
+
+- url: /dnd/css
+  static_dir: dnd/css
+
+- url: /dnd/img
+  static_dir: dnd/img
+
+- url: /dnd/fonts
+  static_dir: dnd/fonts
+
+- url: /dnd
+  static_files: dnd/index.html
+  upload: dnd/index.html
 
 - url: /
-  static_files: index.html
-  upload: index.html
+  static_files: rain/rain.html
+  upload: rain/rain.html
+
+- url: /rain
+  static_files: rain/rain.html
+  upload: rain/rain.html
+
+- url: /rain/js
+  static_dir: rain/js
+
+- url: /rain/css
+  static_dir: rain/css
+
+- url: /rainbow
+  static_files: rain/rainbowrain.html
+  upload: rain/rainbowrain.html
 
 - url: .*
   script: main.app

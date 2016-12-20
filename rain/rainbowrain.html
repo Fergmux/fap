@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <title>Purple Rain</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        background-color: #050505;
+      }
+      canvas {
+        height: 100vh;
+        width: 100vw;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="1000px" height="1000px" style="display: block"></canvas>
+    <iframe style="display: none" src="https://rainymood.com/"></iframe>
+    <script>
+
+      window.requestAnimFrame = (function(callback) {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+        function(callback) {
+          window.setTimeout(callback, 1000 / 60);
+        };
+      })();
+
+      var canvas = document.getElementById('myCanvas');
+      var gl = initWebGL();
+      // gl=canvas.getContext("2d");
+      
+      function initWebGL() {
+        gl = null;
+
+        // Try to grab the standard context. If it fails, fallback to experimental.
+        gl = canvas.getContext("2d")
+        
+        // If we don't have a GL context, give up now
+        if (!gl) {
+          alert("Unable to initialize WebGL. Your browser may not support it.");
+        }
+        
+        return gl;
+      }
+
+      function makeDrop(drops) {
+        var randVals = [];
+        for (var i = 0; i < 6; i++) {
+          randVals.push(Math.random());
+        }
+        var c3 = Math.floor(randVals[3]*256).toString();
+        var c4 = Math.floor(randVals[4]*256).toString();
+        var c5 = Math.floor(randVals[5]*256).toString();
+        var drop = {
+          x: randVals[0]*canvas.width,
+          y: -60,
+          w: randVals[1]*4,
+          l: randVals[2]*40+30,
+          v: randVals[1]/2 + 0.4,
+          c: "rgb("+c3+", "+c4+", "+c5+")"
+        }
+        drops.push(drop);
+        return drops;
+      }
+
+      function drawLine(drop) {
+        gl.beginPath();
+        gl.moveTo(drop.x, drop.y);
+        gl.lineTo(drop.x, drop.y+drop.l);
+        gl.lineWidth = drop.w;
+        gl.strokeStyle = drop.c;
+        gl.stroke();
+      }
+
+      function drawLines(drops) {
+        for (i in drops) {
+          drawLine(drops[i]);
+        }
+      }
+
+      function updateLines(drops, time) {
+        var liveDrops = [];
+        for (i in drops) {
+          var drop = drops[i]
+          drop.y = drop.y + drop.v * time;
+          if (drop.y < canvas.height) {
+            liveDrops.push(drop);
+          }
+        }
+        return liveDrops;
+      }
+
+      function animate(drops, startTime, prevTime, lastSpawn) {
+        var elapsedTime = (new Date()).getTime() - startTime;
+        
+        deltaTime = elapsedTime - prevTime
+
+        drops = updateLines(drops, deltaTime);
+
+        gl.clearRect(0, 0, canvas.width, canvas.height);
+
+        drawLines(drops);
+
+        drops = makeDrop(drops);
+        drops = makeDrop(drops);
+        drops = makeDrop(drops);
+        
+        // request new frame
+        requestAnimFrame(function() {
+          animate(drops, startTime, elapsedTime, lastSpawn);
+        });
+      }
+
+      // wait one second before starting animation
+      setTimeout(function() {
+        var startTime = (new Date()).getTime();
+        animate([], startTime, startTime, 0);
+        
+      }, 1000);
+
+
+
+    </script>
+  </body>
+</html>      
