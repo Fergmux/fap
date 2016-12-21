@@ -46,3 +46,25 @@ button:focus {
 input {
   display: block;
 }
+.color::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+.color::-webkit-color-swatch {
+    border: none;
+}
+.color {
+  display: block;
+  width: 25px;
+  height: 15px;
+  border: 1px solid #777;
+  border-radius: 2px;
+  padding: 0px;
+}
+div.control {
+  margin-bottom: 5px
+}
+input.input{
+  float: right;
+}
+
+

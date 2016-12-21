@@ -10,11 +10,27 @@
     <div id='container'>
       <canvas id="myCanvas" width="1000px" height="1000px"></canvas>
       <div id='show'>
-        <button id='reset' onclick="reset()">Reset</button>
+        <button id='reset'>Reset</button>
         <button id='showbutton'>Show</button>
       </div>
       <div id='controls'>
         <form method="post">
+          <div class="control">
+            <label for="rainbow">Rainbow:</label>
+            <input type="checkbox" name="rainbow" class="input" id="rainbow">
+          </div>
+          <div class="control">
+            <label for="random">Random:</label>
+            <input type="checkbox" name="random" class="input" id="random">
+          </div>
+          <div class="control">
+            <label for="fgcolor">Rain Color:</label>
+            <input type='color' name="fgcolor" class="color input" id="fg">
+          </div>
+          <div class="control">
+            <label for="bgcolor">Sky Color:</label>
+            <input type='color' name="bgcolor" class="color input" id="bg">
+          </div>
           <label for="speed">Speed:</label>
           <input type="range" name="speed" id="speed" value="6" min="0" max="20">
           <label for="density">Density:</label>
@@ -22,10 +38,10 @@
           <label for="width">Width:</label>
           <input type="range" name="width" id="width" value="4" min="0" max="10">
           <label for="length">Length:</label>
-          <input type="range" name="length" id="length" value="40" min="0" max="100">
+          <input type="range" name="length" id="length" value="100" min="0" max="200">
         </form>
       </div>
     </div>
-    <!-- <iframe style="display: none" src="https://rainymood.com/"></iframe> -->
+    <iframe style="display: none" src="https://rainymood.com/"></iframe>
   </body>
 </html>      
